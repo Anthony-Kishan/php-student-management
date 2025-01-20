@@ -46,15 +46,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">Student Info</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <?php echo $sl; ?>
+                            <!-- AJAX will populate data here -->
                         </div>
                         <div class=" modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -82,7 +81,7 @@
                         <tbody>
                             <?php foreach ($result as $key => $value): ?>
                                 <tr>
-                                    <td class="text-center"><?= $key + 1 ?></td>
+                                    <td class="text-center user_id"><?= $key + 1 ?></td>
                                     <td><?= $value['Name'] ?></td>
                                     <td><?= $value['Address'] ?></td>
                                     <td><?= $value['Phone'] ?></td>
@@ -91,12 +90,12 @@
                                     <td class="text-end">
                                         <a href="./student/edit.php?sl=<?= $value['SL']; ?>" <?php echo disableLink($isLoggedIn); ?>
                                             class="bg-success text-white text-decoration-none rounded-1 px-2 py-1">Edit</a>
+
                                         <a href="./student/delete.php?sl=<?= $value['SL']; ?>" <?php echo disableLink($isLoggedIn); ?>
                                             class="bg-danger text-white text-decoration-none rounded-1 px-2 py-1">Delete</a>
 
-                                        <a href="./student/info_modal.php?sl=<?= $value['SL']; ?>" data-bs-toggle="modal"
-                                            data-bs-target="#info_modal" <?php echo addViewButton($isLoggedIn); ?>
-                                            class="bg-primary text-white text-center text-decoration-none rounded-1 px-2 py-1">View</a>
+                                        <a href="javascript:void(0)" data-id="<?= $value['SL']; ?>" <?php echo addViewButton($isLoggedIn); ?>
+                                            class="bg-primary text-white text-center text-decoration-none rounded-1 px-2 py-1 view-data">View</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

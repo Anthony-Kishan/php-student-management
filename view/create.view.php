@@ -23,7 +23,7 @@
 
                 <div class="card-body">
                     <div class="d-flex justify-content-center py-1">
-                        <form method="post" class="my-3">
+                        <form method="post" action="create.php" enctype="multipart/form-data" class="my-3">
                             <span class="d-flex">
                                 <div>
                                     <label for="name">Name</label><br>
@@ -43,8 +43,9 @@
                             <input type="text" id="address" name="address" placeholder="Address" required
                                 class="my-2 py-2 px-2 w-100"><br>
 
-                            <button type="submit"
-                                class="bg-primary text-white text-center text-decoration-none border-0 rounded-1 my-2 px-2 py-2">Add
+                            <input type="file" name="choosefile" value="" />
+
+                            <button type="submit" class="bg-primary text-white text-center text-decoration-none border-0 rounded-1 my-2 px-2 py-2">Add
                                 Student</button>
                         </form>
                     </div>

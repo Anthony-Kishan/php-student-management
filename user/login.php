@@ -7,6 +7,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    if (empty($email)) {
+        $message = "Email required";
+        header("Location: ./login.php?message=" . base64_encode($message));
+        exit();
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Please enter a valid email address";
+        header("Location: ./login.php?message=" . base64_encode($message));
+        exit();
+    }
+
+    if (empty($password)) {
+        $message = "Password required";
+        header("Location: ./login.php?message=" . base64_encode($message));
+        exit();
+    }
+
     // Fetch user into the database
 
     $sql = "SELECT * FROM user WHERE email = '$email'";

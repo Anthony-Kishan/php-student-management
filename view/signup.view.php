@@ -24,17 +24,17 @@
         <form action="signup.php" method="POST">
             <div class="mb-3">
                 <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" name="username" required>
+                <input type="text" class="form-control" id="exampleInputUsername1" name="username">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="email" required>
+                    name="email">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                Password: <input type="password" class="form-control" id="exampleInputPassword1" name="password"
-                    required>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+
             </div>
             <button type="submit" class="btn btn-primary mb-3">Sign Up</button>
             <p>Already have an account? <a href="login.php">Login</a></p>
