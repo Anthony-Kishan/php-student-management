@@ -5,8 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $address = $_POST['address'];
     $phone = $_POST['phone'];
-    $filename = base64_decode($_FILES["choosefile"]["name"]);
+    $filename = $_FILES["choosefile"]["name"];
     $tempname = $_FILES["choosefile"]["tmp_name"];
+    $fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
+    
     $folder = "../assets/student_img/" . $filename;
 
     // Validate phone number
@@ -21,6 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../index.php?message=" . base64_encode($message));
         exit();
     }
+
+
+    // HANDLE TO GENERATE RANDOM FILENAME
+    $random_num = rand(10000, 99999);
+
+    $time = time();
+
 
     // Move the uploaded image to the uploads folder
     if (move_uploaded_file($tempname, $folder)) {
